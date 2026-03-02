@@ -77,25 +77,26 @@ html {
 }
 
 /* Custom Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.45) rgba(255, 255, 255, 0.08);
+}
+
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
   @apply bg-black;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-white/20 hover:bg-white/40 transition-colors;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.35));
+  border-radius: 9999px;
+  border: 2px solid rgba(0, 0, 0, 1);
 }
 
-/* Custom Cursor Styles */
-.custom-cursor {
-  @apply fixed top-0 left-0 w-4 h-4 bg-white rounded-full pointer-events-none z-[10000] mix-blend-difference;
-  transform: translate(-50%, -50%);
-}
-
-.custom-cursor-follower {
-  @apply fixed top-0 left-0 w-10 h-10 border border-white/30 rounded-full pointer-events-none z-[9999] transition-transform duration-300 ease-out;
-  transform: translate(-50%, -50%);
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.55));
 }

@@ -10,7 +10,7 @@ import { Narrative } from './components/Narrative';
 import { Journalism } from './components/Journalism';
 import { Resume } from './components/Resume';
 import { Contact } from './components/Contact';
-import { CustomCursor, FilmGrain } from './components/Common';
+import { FilmGrain } from './components/Common';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -26,7 +26,6 @@ export default function App() {
       transition={{ duration: 1.5, ease: 'easeInOut' }}
       className="relative min-h-screen bg-black text-white"
     >
-      <CustomCursor />
       <FilmGrain />
       <Navbar />
 

@@ -1,72 +1,89 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export const Hero = () => {
-  const heroRef = useRef<HTMLDivElement>(null);
   const marqueeRef = useRef<HTMLDivElement>(null);
-  const subtextRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const marquee = marqueeRef.current;
-    if (!marquee) return;
+    const intro = contentRef.current;
+    if (!marquee || !intro) return;
 
-    // Continuous marquee animation
-    gsap.to(marquee.querySelectorAll('.marquee-item'), {
+    const marqueeTween = gsap.to(marquee.querySelectorAll('.marquee-item'), {
       xPercent: -100,
       repeat: -1,
-      duration: 20,
+      duration: 22,
       ease: 'none',
     });
 
-    // Scroll-based scaling and parallax
-    gsap.to(marquee, {
-      scale: 1.2,
-      y: -100,
-      scrollTrigger: {
-        trigger: heroRef.current,
-        start: 'top top',
-        end: 'bottom top',
-        scrub: true,
-      },
-    });
-
-    gsap.fromTo(subtextRef.current, 
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 1.5, delay: 0.5, ease: 'power4.out' }
+    const introTimeline = gsap.timeline();
+    introTimeline.fromTo(
+      intro,
+      { opacity: 0, y: 36 },
+      { opacity: 1, y: 0, duration: 1, ease: 'power4.out' }
     );
+
+    return () => {
+      marqueeTween.kill();
+      introTimeline.kill();
+    };
   }, []);
 
   return (
-    <section ref={heroRef} className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-black">
-      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent" />
+    <section className="relative min-h-[100svh] w-full overflow-hidden bg-black pt-28 sm:pt-32 md:pt-40 pb-14 md:pb-20">
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,rgba(255,255,255,0.15),transparent_42%),radial-gradient(circle_at_86%_82%,rgba(255,255,255,0.08),transparent_36%)]" />
       </div>
 
-      <div ref={marqueeRef} className="flex whitespace-nowrap z-10 select-none">
+      <div className="absolute top-[26%] sm:top-[30%] md:top-[33%] left-0 w-full pointer-events-none overflow-hidden opacity-[0.12] md:opacity-[0.16]">
+        <div ref={marqueeRef} className="flex whitespace-nowrap z-10 select-none">
         {[1, 2, 3].map((i) => (
           <div key={i} className="marquee-item flex items-center">
-            <h1 className="marquee-text px-10">SAIFEDDINE LAHMAR</h1>
-            <div className="w-20 h-20 md:w-32 md:h-32 rounded-full border border-white/20 mx-10 flex items-center justify-center">
-              <div className="w-4 h-4 bg-white rounded-full animate-pulse" />
-            </div>
+              <h2 className="marquee-text px-6 sm:px-8 md:px-10 !text-[20vw] sm:!text-[14vw] md:!text-[10vw]">SAIFEDDINE LAHMAR</h2>
+              <div className="w-8 sm:w-12 md:w-16 h-[1px] bg-white/40 mx-4 sm:mx-6 md:mx-8" />
           </div>
         ))}
+        </div>
       </div>
 
-      <div ref={subtextRef} className="mt-12 text-center z-10 px-6">
-        <p className="font-mono text-[10px] md:text-xs uppercase tracking-[0.5em] text-white/40 mb-4">
-          Creative Media / Film / Journalism
+      <div ref={contentRef} className="relative z-10 max-w-6xl mx-auto px-5 sm:px-6 md:px-10">
+        <p className="font-mono text-[10px] md:text-xs uppercase tracking-[0.35em] md:tracking-[0.5em] text-white/55 mb-6 md:mb-8">
+          Saifeddine Lahmar / Director & Storyteller
         </p>
-        <h2 className="text-xl md:text-3xl font-light tracking-tight text-white/80 max-w-2xl mx-auto normal-case font-sans">
-          Championing creative media innovation through purposeful storytelling.
-        </h2>
+
+        <h1 className="text-[16vw] sm:text-[12vw] md:text-[9vw] leading-[0.88] tracking-tight max-w-5xl">
+          Building bold narratives
+          <span className="block text-white/75">for screen, culture, and impact.</span>
+        </h1>
+
+        <p className="mt-6 md:mt-9 text-[15px] sm:text-base md:text-xl text-white/75 max-w-2xl leading-relaxed">
+          A multidisciplinary creative shaping films, journalism, and campaigns that are emotionally sharp and culturally grounded.
+        </p>
+
+        <div className="mt-9 md:mt-12 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-7">
+          <a
+            href="#work"
+            className="inline-flex items-center justify-center border border-white/25 hover:border-white/60 transition-colors px-6 py-3 font-mono text-[10px] uppercase tracking-[0.28em] text-white"
+          >
+            View Work
+          </a>
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.28em] text-white/85 hover:text-white transition-colors"
+          >
+            Let’s Connect
+            <span className="w-10 h-px bg-white/60" />
+          </a>
+        </div>
+
+        <div className="mt-10 md:mt-14 pt-5 border-t border-white/15 flex flex-wrap items-center gap-x-8 gap-y-2">
+          <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-white/55">Chicago / Tunis</span>
+          <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-white/55">Film • Journalism • Marketing</span>
+        </div>
       </div>
 
-      {/* Abstract visual element */}
-      <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-white/5 to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-white/10 pointer-events-none" />
     </section>
   );
 };
