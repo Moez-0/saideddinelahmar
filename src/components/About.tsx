@@ -43,7 +43,7 @@ export const About = () => {
   }, []);
 
   return (
-    <section id="about" ref={sectionRef} className="min-h-screen flex flex-col md:flex-row items-center bg-[#080808] border-y border-white/10 overflow-hidden">
+    <section id="about" ref={sectionRef} className="min-h-screen flex flex-col md:flex-row items-center bg-black border-y border-white/10 overflow-hidden">
       <div ref={leftRef} className="w-full md:w-1/2 p-10 md:p-20 border-b md:border-b-0 md:border-r border-white/10 flex flex-col justify-center">
         <span className="font-mono text-[10px] uppercase tracking-[0.5em] text-white/40 mb-10 block">The Perspective</span>
         <h2 className="text-5xl md:text-[8vw] leading-[0.9] tracking-tighter mb-10">

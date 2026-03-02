@@ -22,7 +22,7 @@ export const Contact = () => {
   }, []);
 
   return (
-    <section id="contact" ref={sectionRef} className="relative min-h-screen bg-[#080808] flex flex-col justify-between overflow-hidden">
+    <section id="contact" ref={sectionRef} className="relative min-h-screen bg-black flex flex-col justify-between overflow-hidden">
       <div className="flex-1 flex flex-col items-center justify-center px-6">
         <span className="font-mono text-[10px] uppercase tracking-[0.5em] text-white/40 mb-10 block">Get in touch</span>
         <h2 className="text-[15vw] md:text-[12vw] leading-none tracking-tighter mb-20 text-center">

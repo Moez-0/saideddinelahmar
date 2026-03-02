@@ -81,7 +81,7 @@ export const Resume = () => {
   }, []);
 
   return (
-    <section id="resume" ref={sectionRef} className="py-40 bg-[#080808] px-6 md:px-10">
+    <section id="resume" ref={sectionRef} className="py-40 bg-black px-6 md:px-10">
       <div className="max-w-6xl mx-auto">
         <div className="mb-24">
           <span className="font-mono text-[10px] uppercase tracking-[0.5em] text-white/40 mb-4 block">Chapter 04</span>

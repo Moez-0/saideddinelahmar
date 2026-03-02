@@ -1,9 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Canva Helvetica Now";
+  src: url("https://africanleadershipacademy.my.canva.site/ssanyu-sematimba-creative-portfolio/_assets/fonts/8db6873543b01fce50e8a48e460ab570.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Canva Helvetica Now";
+  src: url("https://africanleadershipacademy.my.canva.site/ssanyu-sematimba-creative-portfolio/_assets/fonts/cd51f2d8116c91ad0f63800235235e11.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Open Sauce";
+  src: url("https://africanleadershipacademy.my.canva.site/ssanyu-sematimba-creative-portfolio/_assets/fonts/88a36cab6d7cfa75bff7e49535b9642a.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Open Sauce";
+  src: url("https://africanleadershipacademy.my.canva.site/ssanyu-sematimba-creative-portfolio/_assets/fonts/c19f8e9cab364abc00a750036f731e21.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Anton", sans-serif;
+  --font-sans: "Canva Helvetica Now", "Open Sauce", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Open Sauce", "Canva Helvetica Now", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 }
 
@@ -13,13 +45,14 @@ html {
 
 @layer base {
   body {
-    @apply bg-[#080808] text-white selection:bg-white selection:text-black antialiased overflow-x-hidden;
+    @apply bg-black text-white selection:bg-white selection:text-black antialiased overflow-x-hidden;
     font-family: var(--font-sans);
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply uppercase tracking-tighter;
+    @apply tracking-tight;
     font-family: var(--font-display);
+    font-weight: 700;
   }
 }
 
@@ -31,7 +64,7 @@ html {
   }
 
   .marquee-text {
-    @apply whitespace-nowrap uppercase font-display text-[15vw] leading-none tracking-tighter;
+    @apply whitespace-nowrap font-display text-[15vw] leading-none tracking-tight;
   }
 
   .nav-link {

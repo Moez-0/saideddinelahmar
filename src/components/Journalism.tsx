@@ -65,7 +65,7 @@ export const Journalism = () => {
   }, []);
 
   return (
-    <section id="journalism" ref={sectionRef} className="py-40 bg-[#080808] relative overflow-hidden">
+    <section id="journalism" ref={sectionRef} className="py-40 bg-black relative overflow-hidden">
       {/* Background Marquee */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 opacity-[0.03] pointer-events-none select-none whitespace-nowrap">
         <div ref={marqueeRef} className="text-[30vw] font-display leading-none">

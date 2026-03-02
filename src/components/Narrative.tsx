@@ -50,7 +50,7 @@ export const Narrative = () => {
   }, []);
 
   return (
-    <section id="work" ref={sectionRef} className="py-40 bg-[#080808] px-6 md:px-10">
+    <section id="work" ref={sectionRef} className="py-40 bg-black px-6 md:px-10">
       <div className="flex justify-between items-end mb-20">
         <div>
           <span className="font-mono text-[10px] uppercase tracking-[0.5em] text-white/40 mb-4 block">Chapter 02</span>

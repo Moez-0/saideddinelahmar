@@ -40,7 +40,7 @@ export const Hero = () => {
   }, []);
 
   return (
-    <section ref={heroRef} className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-[#080808]">
+    <section ref={heroRef} className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-black">
       <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent" />
       </div>
