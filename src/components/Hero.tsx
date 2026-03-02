@@ -31,12 +31,12 @@ export const Hero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-[100svh] w-full overflow-hidden bg-black pt-28 sm:pt-32 md:pt-40 pb-14 md:pb-20">
+    <section className="relative min-h-[100svh] w-full overflow-hidden bg-black md:pt-40 md:pb-20">
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,rgba(255,255,255,0.15),transparent_42%),radial-gradient(circle_at_86%_82%,rgba(255,255,255,0.08),transparent_36%)]" />
       </div>
 
-      <div className="absolute top-[26%] sm:top-[30%] md:top-[33%] left-0 w-full pointer-events-none overflow-hidden opacity-[0.12] md:opacity-[0.16]">
+      <div className="absolute top-[38%] sm:top-[34%] md:top-[33%] left-0 w-full pointer-events-none overflow-hidden opacity-[0.12] md:opacity-[0.16]">
         <div ref={marqueeRef} className="flex whitespace-nowrap z-10 select-none">
         {[1, 2, 3].map((i) => (
           <div key={i} className="marquee-item flex items-center">
@@ -47,39 +47,33 @@ export const Hero = () => {
         </div>
       </div>
 
-      <div ref={contentRef} className="relative z-10 max-w-6xl mx-auto px-5 sm:px-6 md:px-10">
-        <p className="font-mono text-[10px] md:text-xs uppercase tracking-[0.35em] md:tracking-[0.5em] text-white/55 mb-6 md:mb-8">
+      <div ref={contentRef} className="relative z-10 max-w-6xl mx-auto px-5 sm:px-6 md:px-10 min-h-[100svh] flex flex-col justify-center pt-24 pb-12 md:min-h-0 md:block md:pt-0 md:pb-0">
+        <p className="font-mono text-[10px] md:text-xs uppercase tracking-[0.32em] md:tracking-[0.42em] text-white/70 mb-6 md:mb-8">
           Saifeddine Lahmar / Director & Storyteller
         </p>
 
-        <h1 className="text-[16vw] sm:text-[12vw] md:text-[9vw] leading-[0.88] tracking-tight max-w-5xl font-bold">
-          Building bold narratives
-          <span className="block text-white/90">for screen, culture, and impact.</span>
+        <h1 className="text-[16vw] sm:text-[12vw] md:text-[9vw] leading-[0.9] tracking-tight max-w-5xl font-bold">
+          Bold narratives.
         </h1>
 
-        <p className="mt-6 md:mt-9 text-[15px] sm:text-base md:text-xl font-medium text-white/85 max-w-2xl leading-relaxed">
-          A multidisciplinary creative shaping films, journalism, and campaigns that are emotionally sharp and culturally grounded.
+        <p className="mt-5 md:mt-7 text-[15px] sm:text-base md:text-xl font-medium text-white/85 max-w-md leading-relaxed">
+          Film and journalism with cultural clarity.
         </p>
 
-        <div className="mt-9 md:mt-12 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-7">
+        <div className="mt-8 md:mt-10 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-7">
           <a
             href="#work"
-            className="inline-flex items-center justify-center border border-white/25 hover:border-white/60 transition-colors px-6 py-3 font-mono text-[10px] uppercase tracking-[0.28em] text-white"
+            className="inline-flex items-center justify-center border border-white/35 hover:border-white/70 transition-colors px-6 py-3 font-mono text-[10px] font-semibold uppercase tracking-[0.24em] text-white"
           >
             View Work
           </a>
           <a
             href="#contact"
-            className="inline-flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.28em] text-white/85 hover:text-white transition-colors"
+            className="inline-flex items-center gap-3 font-mono text-[10px] font-semibold uppercase tracking-[0.24em] text-white/90 hover:text-white transition-colors"
           >
             Let’s Connect
             <span className="w-10 h-px bg-white/60" />
           </a>
-        </div>
-
-        <div className="mt-10 md:mt-14 pt-5 border-t border-white/15 flex flex-wrap items-center gap-x-8 gap-y-2">
-          <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-white/55">Chicago / Tunis</span>
-          <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-white/55">Film • Journalism • Marketing</span>
         </div>
       </div>
 

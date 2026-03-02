@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion } from 'motion/react';
 
 const navItems = [
   { name: 'Narrative', href: '#work' },
@@ -10,15 +10,23 @@ const navItems = [
 ];
 
 export const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const savedTheme = localStorage.getItem('theme') as 'dark' | 'light' | null;
+    const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    const nextTheme = savedTheme ?? (systemPrefersLight ? 'light' : 'dark');
+
+    document.documentElement.classList.toggle('light', nextTheme === 'light');
+    setTheme(nextTheme);
   }, []);
+
+  const toggleTheme = () => {
+    const nextTheme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(nextTheme);
+    document.documentElement.classList.toggle('light', nextTheme === 'light');
+    localStorage.setItem('theme', nextTheme);
+  };
 
   return (
     <nav className="fixed top-0 left-0 w-full z-[100] pointer-events-none p-6 md:p-10 flex justify-between items-start">
@@ -29,6 +37,14 @@ export const Navbar = () => {
       </div>
 
       <div className="flex flex-col items-end gap-4 pointer-events-auto">
+        <button
+          onClick={toggleTheme}
+          className="font-mono text-[10px] uppercase tracking-[0.22em] px-3 py-2 border border-white/25 hover:border-white/55 transition-colors"
+          aria-label="Toggle light mode"
+        >
+          {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
+        </button>
+
         {navItems.map((item, index) => (
           <a
             key={item.name}
