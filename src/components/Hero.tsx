@@ -10,12 +10,15 @@ export const Hero = () => {
     const intro = contentRef.current;
     if (!marquee || !intro) return;
 
-    const marqueeTween = gsap.to(marquee.querySelectorAll('.marquee-item'), {
-      xPercent: -100,
-      repeat: -1,
-      duration: 22,
-      ease: 'none',
-    });
+    const isMobile = window.matchMedia('(max-width: 767px)').matches;
+    const marqueeTween = isMobile
+      ? null
+      : gsap.to(marquee.querySelectorAll('.marquee-item'), {
+          xPercent: -100,
+          repeat: -1,
+          duration: 22,
+          ease: 'none',
+        });
 
     const introTimeline = gsap.timeline();
     introTimeline.fromTo(
@@ -25,18 +28,18 @@ export const Hero = () => {
     );
 
     return () => {
-      marqueeTween.kill();
+      marqueeTween?.kill();
       introTimeline.kill();
     };
   }, []);
 
   return (
-    <section className="relative min-h-[100svh] w-full overflow-hidden bg-black md:pt-40 md:pb-20">
+    <section className="relative min-h-[100dvh] w-full overflow-hidden bg-black md:pt-40 md:pb-20">
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,rgba(255,255,255,0.15),transparent_42%),radial-gradient(circle_at_86%_82%,rgba(255,255,255,0.08),transparent_36%)]" />
       </div>
 
-      <div className="absolute top-[38%] sm:top-[34%] md:top-[33%] left-0 w-full pointer-events-none overflow-hidden opacity-[0.12] md:opacity-[0.16]">
+      <div className="hidden sm:block absolute top-[34%] md:top-[33%] left-0 w-full pointer-events-none overflow-hidden opacity-[0.12] md:opacity-[0.16]">
         <div ref={marqueeRef} className="flex whitespace-nowrap z-10 select-none">
         {[1, 2, 3].map((i) => (
           <div key={i} className="marquee-item flex items-center">
@@ -47,7 +50,7 @@ export const Hero = () => {
         </div>
       </div>
 
-      <div ref={contentRef} className="relative z-10 max-w-6xl mx-auto px-5 sm:px-6 md:px-10 min-h-[100svh] flex flex-col justify-center pt-24 pb-12 md:min-h-0 md:block md:pt-0 md:pb-0">
+      <div ref={contentRef} className="relative z-10 max-w-6xl mx-auto px-5 sm:px-6 md:px-10 min-h-[100dvh] flex flex-col justify-center pt-24 pb-12 md:min-h-0 md:block md:pt-0 md:pb-0">
         <p className="font-mono text-[10px] md:text-xs uppercase tracking-[0.32em] md:tracking-[0.42em] text-white/70 mb-6 md:mb-8">
           Saifeddine Lahmar / Director & Storyteller
         </p>

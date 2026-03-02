@@ -1,1 +1,1 @@
-export const FilmGrain = () => <div className="film-grain" />;
+export const FilmGrain = () => <div className="film-grain hidden sm:block" />;

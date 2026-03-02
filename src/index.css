@@ -43,6 +43,12 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (max-width: 767px) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 html.light {
   color-scheme: light;
 }
