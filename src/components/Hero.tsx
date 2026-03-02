@@ -52,12 +52,12 @@ export const Hero = () => {
           Saifeddine Lahmar / Director & Storyteller
         </p>
 
-        <h1 className="text-[16vw] sm:text-[12vw] md:text-[9vw] leading-[0.88] tracking-tight max-w-5xl">
+        <h1 className="text-[16vw] sm:text-[12vw] md:text-[9vw] leading-[0.88] tracking-tight max-w-5xl font-bold">
           Building bold narratives
-          <span className="block text-white/75">for screen, culture, and impact.</span>
+          <span className="block text-white/90">for screen, culture, and impact.</span>
         </h1>
 
-        <p className="mt-6 md:mt-9 text-[15px] sm:text-base md:text-xl text-white/75 max-w-2xl leading-relaxed">
+        <p className="mt-6 md:mt-9 text-[15px] sm:text-base md:text-xl font-medium text-white/85 max-w-2xl leading-relaxed">
           A multidisciplinary creative shaping films, journalism, and campaigns that are emotionally sharp and culturally grounded.
         </p>
 

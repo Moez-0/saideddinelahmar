@@ -114,7 +114,7 @@ export const Resume = () => {
                     {exp.date}
                   </span>
                 </div>
-                <p className="text-lg font-light text-white/60 leading-relaxed max-w-2xl">
+                <p className="text-lg font-medium text-white/75 leading-relaxed max-w-2xl">
                   {exp.description}
                 </p>
               </div>

@@ -56,10 +56,10 @@ export const About = () => {
 
       <div ref={rightRef} className="w-full md:w-1/2 p-10 md:p-20 flex flex-col justify-center">
         <div className="max-w-md space-y-8">
-          <p className="text-xl md:text-3xl font-light leading-tight text-white/80">
+          <p className="text-xl md:text-3xl font-medium leading-tight text-white/90">
             Multidisciplinary storyteller, writer-director, and marketing strategist.
           </p>
-          <p className="text-base md:text-lg font-light text-white/40 leading-relaxed">
+          <p className="text-base md:text-lg font-medium text-white/70 leading-relaxed">
             I combine journalism, filmmaking, and digital media to craft narratives and campaigns that drive engagement and cultural impact.
           </p>
           <div className="pt-10">
